@@ -1,98 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update ZBLL Progress</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        label {
-            font-size: 16px;
-            display: block;
-            margin: 10px 0 5px;
-        }
-        input, button {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            margin: 5px 0 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZBLL Tracker</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Update Your Progress</h1>
-        <form id="update-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-            
-            <label for="set">Set (e.g., Sune, Antisune, etc.):</label>
-            <input type="text" id="set" required>
-            
-            <label for="value">Value (e.g., number completed):</label>
-            <input type="number" id="value" required>
-            
-            <button type="submit">Update Progress</button>
-        </form>
-        <div id="response-message" class="message"></div>
+  <h1>ZBLL Progress Tracker</h1>
+  
+  <!-- Main screen with progress display -->
+  <div id="progressScreen">
+    <h2>Progress Overview</h2>
+    <div class="progress-box" id="daniel-progress">
+      <h3>Daniel Karnaukh</h3>
+      <p>Sune: 0/72</p>
+      <p>Antisune: 0/72</p>
+      <p>T: 0/72</p>
+      <p>U: 0/72</p>
+      <p>L: 0/72</p>
+      <p>H: 0/40</p>
+      <p>Pi: 0/72</p>
     </div>
 
-    <script>
-        // Handle form submission
-        document.getElementById('update-form').addEventListener('submit', async (event) => {
-            event.preventDefault();
+    <div class="progress-box" id="christopher-progress">
+      <h3>Christopher Chi</h3>
+      <p>Sune: 0/72</p>
+      <p>Antisune: 0/72</p>
+      <p>T: 0/72</p>
+      <p>U: 0/72</p>
+      <p>L: 0/72</p>
+      <p>H: 0/40</p>
+      <p>Pi: 0/72</p>
+    </div>
 
-            const name = document.getElementById('name').value;
-            const set = document.getElementById('set').value;
-            const value = document.getElementById('value').value;
+    <div class="progress-box" id="alexei-progress">
+      <h3>Alexei Sinyavin</h3>
+      <p>Sune: 0/72</p>
+      <p>Antisune: 0/72</p>
+      <p>T: 0/72</p>
+      <p>U: 0/72</p>
+      <p>L: 0/72</p>
+      <p>H: 0/40</p>
+      <p>Pi: 0/72</p>
+    </div>
+    
+    <button onclick="goToUpdateScreen()">Add Progress</button>
+  </div>
 
-            try {
-                const response = await fetch('http://localhost:3000/api/progress/update', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name, set, value })
-                });
+  <!-- Add progress screen -->
+  <div id="addProgressScreen" style="display: none;">
+    <h2>Update ZBLL Progress</h2>
+    <form id="progressForm">
+      <label for="person">Choose a person:</label>
+      <select id="person" name="person">
+        <option value="daniel">Daniel Karnaukh</option>
+        <option value="christopher">Christopher Chi</option>
+        <option value="alexei">Alexei Sinyavin</option>
+      </select>
+      
+      <label for="set">Choose a set:</label>
+      <select id="set" name="set">
+        <option value="sune">Sune</option>
+        <option value="antisune">Antisune</option>
+        <option value="t">T</option>
+        <option value="u">U</option>
+        <option value="l">L</option>
+        <option value="h">H</option>
+        <option value="pi">Pi</option>
+      </select>
+      
+      <label for="completed">Completed Algorithms:</label>
+      <input type="number" id="completed" name="completed" min="0" required>
+      
+      <button type="submit">Submit</button>
+    </form>
+    <button onclick="goToMainScreen()">Back to Progress</button>
+  </div>
 
-                const result = await response.text();
-                document.getElementById('response-message').textContent = result;
-            } catch (error) {
-                console.error('Error updating progress:', error);
-            }
-        });
-    </script>
+  <script src="app.js"></script>
 </body>
 </html>
