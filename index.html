@@ -7,212 +7,115 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
+            background-color: #f0f0f0;
             color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
         }
         h1 {
             text-align: center;
-            color: #555;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .person {
             margin-bottom: 20px;
         }
-        .person h2 {
-            margin: 0 0 10px;
-            color: #444;
+        label {
+            font-size: 16px;
+            display: block;
+            margin: 10px 0 5px;
         }
-        .sets {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .set {
-            flex: 1 1 calc(33% - 10px);
-            background: #f9f9f9;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            text-align: center;
-        }
-        .set input {
+        input, button {
             width: 100%;
-            padding: 8px;
-            margin-top: 5px;
+            padding: 10px;
             font-size: 16px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #888;
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
         }
-        .total {
-            text-align: center;
-            margin-top: 20px;
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
             font-size: 16px;
-            font-weight: bold;
-            color: #444;
+            color: green;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>ZBLL Progress Tracker</h1>
     <div class="container">
-        <!-- Daniel Karnaukh -->
-        <div class="person">
-            <h2>Daniel Karnaukh</h2>
-            <div class="sets">
-                <div class="set">
-                    <label for="daniel-sune">Sune (72)</label>
-                    <input type="number" id="daniel-sune" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="daniel-antisune">Antisune (72)</label>
-                    <input type="number" id="daniel-antisune" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="daniel-t">T (72)</label>
-                    <input type="number" id="daniel-t" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="daniel-u">U (72)</label>
-                    <input type="number" id="daniel-u" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="daniel-l">L (72)</label>
-                    <input type="number" id="daniel-l" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="daniel-h">H (40)</label>
-                    <input type="number" id="daniel-h" value="0" min="0" max="40">
-                </div>
-                <div class="set">
-                    <label for="daniel-pi">Pi (72)</label>
-                    <input type="number" id="daniel-pi" value="0" min="0" max="72">
-                </div>
-            </div>
-            <div class="total">
-                Total ZBLL Progress: <span id="daniel-total">0 / 493</span>
-            </div>
-        </div>
-
-        <!-- Christopher Chi -->
-        <div class="person">
-            <h2>Christopher Chi</h2>
-            <div class="sets">
-                <div class="set">
-                    <label for="christopher-sune">Sune (72)</label>
-                    <input type="number" id="christopher-sune" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="christopher-antisune">Antisune (72)</label>
-                    <input type="number" id="christopher-antisune" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="christopher-t">T (72)</label>
-                    <input type="number" id="christopher-t" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="christopher-u">U (72)</label>
-                    <input type="number" id="christopher-u" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="christopher-l">L (72)</label>
-                    <input type="number" id="christopher-l" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="christopher-h">H (40)</label>
-                    <input type="number" id="christopher-h" value="0" min="0" max="40">
-                </div>
-                <div class="set">
-                    <label for="christopher-pi">Pi (72)</label>
-                    <input type="number" id="christopher-pi" value="0" min="0" max="72">
-                </div>
-            </div>
-            <div class="total">
-                Total ZBLL Progress: <span id="christopher-total">0 / 493</span>
-            </div>
-        </div>
-
-        <!-- Alexei Sinyavin -->
-        <div class="person">
-            <h2>Alexei Sinyavin</h2>
-            <div class="sets">
-                <div class="set">
-                    <label for="alexei-sune">Sune (72)</label>
-                    <input type="number" id="alexei-sune" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="alexei-antisune">Antisune (72)</label>
-                    <input type="number" id="alexei-antisune" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="alexei-t">T (72)</label>
-                    <input type="number" id="alexei-t" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="alexei-u">U (72)</label>
-                    <input type="number" id="alexei-u" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="alexei-l">L (72)</label>
-                    <input type="number" id="alexei-l" value="0" min="0" max="72">
-                </div>
-                <div class="set">
-                    <label for="alexei-h">H (40)</label>
-                    <input type="number" id="alexei-h" value="0" min="0" max="40">
-                </div>
-                <div class="set">
-                    <label for="alexei-pi">Pi (72)</label>
-                    <input type="number" id="alexei-pi" value="0" min="0" max="72">
-                </div>
-            </div>
-            <div class="total">
-                Total ZBLL Progress: <span id="alexei-total">0 / 493</span>
-            </div>
-        </div>
+        <h1>ZBLL Progress</h1>
+        <form id="progress-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            
+            <label for="set">Set (e.g., Sune, AntiSune, etc.):</label>
+            <input type="text" id="set" required>
+            
+            <label for="value">Value (e.g., number completed):</label>
+            <input type="number" id="value" required>
+            
+            <button type="submit">Update Progress</button>
+        </form>
+        <div id="response-message" class="message"></div>
     </div>
-    <div class="footer">Built for fun ZBLL tracking! 🚀</div>
+
     <script>
-        // Function to calculate total progress
-        function updateTotal(person) {
-            const sets = ['sune', 'antisune', 't', 'u', 'l', 'h', 'pi'];
-            let total = 0;
-            sets.forEach(set => {
-                const value = parseInt(document.getElementById(person + '-' + set).value) || 0;
-                total += value;
-            });
-            const totalProgress = total + 21; // Adding PLLs
-            document.getElementById(person + '-total').textContent = `${totalProgress} / 493`;
-        }
+        // Select form and input fields
+        const form = document.getElementById('progress-form');
+        const nameInput = document.getElementById('name');
+        const setInput = document.getElementById('set');
+        const valueInput = document.getElementById('value');
+        const messageDiv = document.getElementById('response-message');
 
-        // Event listeners for input changes
-        document.querySelectorAll('input').forEach(input => {
-            const savedValue = localStorage.getItem(input.id);
-            if (savedValue) input.value = savedValue;
+        // Handle form submission
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-            input.addEventListener('change', () => {
-                localStorage.setItem(input.id, input.value);
-                const person = input.id.split('-')[0];
-                updateTotal(person);
-            });
+            // Collect data from the form
+            const name = nameInput.value;
+            const set = setInput.value;
+            const value = valueInput.value;
+
+            // Send POST request to backend API
+            try {
+                const response = await fetch('http://localhost:3000/api/progress/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, set, value })
+                });
+
+                const result = await response.text();
+                // Show response from backend
+                messageDiv.textContent = result;
+                messageDiv.style.color = 'green';
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.textContent = 'An error occurred while updating progress.';
+                messageDiv.style.color = 'red';
+            }
+
+            // Clear form inputs after submission
+            nameInput.value = '';
+            setInput.value = '';
+            valueInput.value = '';
         });
-
-        // Initialize total progress on page load
-        ['daniel', 'christopher', 'alexei'].forEach(person => updateTotal(person));
     </script>
 </body>
 </html>
