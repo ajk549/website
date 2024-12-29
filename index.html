@@ -15,6 +15,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
         }
         .container {
             background-color: white;
@@ -22,26 +23,31 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 600px;
         }
         h1 {
             text-align: center;
             margin-bottom: 20px;
         }
-        label {
-            font-size: 16px;
-            display: block;
-            margin: 10px 0 5px;
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
         }
-        input, button {
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        button {
             width: 100%;
             padding: 10px;
             font-size: 16px;
             margin: 5px 0 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
-        }
-        button {
             background-color: #4CAF50;
             color: white;
             cursor: pointer;
@@ -49,73 +55,68 @@
         button:hover {
             background-color: #45a049;
         }
-        .message {
-            font-size: 16px;
-            color: green;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>ZBLL Progress</h1>
-        <form id="progress-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-            
-            <label for="set">Set (e.g., Sune, AntiSune, etc.):</label>
-            <input type="text" id="set" required>
-            
-            <label for="value">Value (e.g., number completed):</label>
-            <input type="number" id="value" required>
-            
-            <button type="submit">Update Progress</button>
-        </form>
-        <div id="response-message" class="message"></div>
+        <h1>ZBLL Progress Tracker</h1>
+        
+        <!-- Table to display progress -->
+        <table id="progress-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sune</th>
+                    <th>AntiSune</th>
+                    <th>T</th>
+                    <th>U</th>
+                    <th>L</th>
+                    <th>H</th>
+                    <th>Pi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be filled by JavaScript -->
+            </tbody>
+        </table>
+
+        <button onclick="window.location.href = 'update.html';">Update My Progress</button>
     </div>
 
     <script>
-        // Select form and input fields
-        const form = document.getElementById('progress-form');
-        const nameInput = document.getElementById('name');
-        const setInput = document.getElementById('set');
-        const valueInput = document.getElementById('value');
-        const messageDiv = document.getElementById('response-message');
-
-        // Handle form submission
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            // Collect data from the form
-            const name = nameInput.value;
-            const set = setInput.value;
-            const value = valueInput.value;
-
-            // Send POST request to backend API
+        // Fetch ZBLL progress data from backend
+        async function fetchProgress() {
             try {
-                const response = await fetch('http://localhost:3000/api/progress/update', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name, set, value })
-                });
+                const response = await fetch('http://localhost:3000/api/progress');
+                const data = await response.json();
+                const tableBody = document.querySelector("#progress-table tbody");
 
-                const result = await response.text();
-                // Show response from backend
-                messageDiv.textContent = result;
-                messageDiv.style.color = 'green';
+                // Clear the current table content
+                tableBody.innerHTML = '';
+
+                // Populate the table with the data
+                for (let name in data) {
+                    const progress = data[name];
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${name}</td>
+                        <td>${progress.sune}</td>
+                        <td>${progress.antisune}</td>
+                        <td>${progress.t}</td>
+                        <td>${progress.u}</td>
+                        <td>${progress.l}</td>
+                        <td>${progress.h}</td>
+                        <td>${progress.pi}</td>
+                    `;
+                    tableBody.appendChild(row);
+                }
             } catch (error) {
-                console.error('Error:', error);
-                messageDiv.textContent = 'An error occurred while updating progress.';
-                messageDiv.style.color = 'red';
+                console.error('Error fetching progress data:', error);
             }
+        }
 
-            // Clear form inputs after submission
-            nameInput.value = '';
-            setInput.value = '';
-            valueInput.value = '';
-        });
+        // Fetch data when page loads
+        window.onload = fetchProgress;
     </script>
 </body>
 </html>
