@@ -1,109 +1,49 @@
-/* Reset some default styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.screen {
-  display: none;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#overview-screen {
-  display: block;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.progress-summary {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+#main-screen, #update-screen {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.progress-item {
-  background-color: #efefef;
-  padding: 15px;
-  border-radius: 8px;
-  width: 30%;
-  text-align: center;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.progress-item h2 {
-  margin-bottom: 10px;
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 15px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
-  background-color: #45a049;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 300px;
-  margin: 0 auto;
-}
-
-label {
-  font-weight: bold;
-}
-
-input, select {
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#back-to-overview-button {
-  margin-top: 20px;
-  background-color: #ff4d4d;
-}
-
-#back-to-overview-button:hover {
-  background-color: #e04343;
-}
-
-select, input {
-  background-color: #f9f9f9;
-}
-
-form button {
-  background-color: #4CAF50;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
