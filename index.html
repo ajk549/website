@@ -1,83 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZBLL Tracker</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <h1>ZBLL Progress Tracker</h1>
+<!-- Main progress overview screen -->
+<div id="overview-screen">
+  <h1>Progress Overview</h1>
   
-  <!-- Main screen with progress display -->
-  <div id="progressScreen">
-    <h2>Progress Overview</h2>
+  <div id="progress-container">
+    <!-- Displaying Daniel's progress -->
     <div class="progress-box" id="daniel-progress">
       <h3>Daniel Karnaukh</h3>
-      <p>Sune: 0/72</p>
-      <p>Antisune: 0/72</p>
-      <p>T: 0/72</p>
-      <p>U: 0/72</p>
-      <p>L: 0/72</p>
-      <p>H: 0/40</p>
-      <p>Pi: 0/72</p>
+      <div id="daniel-sune">Sune: 0/72</div>
+      <div id="daniel-antisune">Antisune: 0/72</div>
+      <div id="daniel-t">T: 0/72</div>
+      <div id="daniel-u">U: 0/72</div>
+      <div id="daniel-l">L: 0/72</div>
+      <div id="daniel-h">H: 0/40</div>
+      <div id="daniel-pi">Pi: 0/72</div>
     </div>
 
+    <!-- Displaying Christopher's progress -->
     <div class="progress-box" id="christopher-progress">
       <h3>Christopher Chi</h3>
-      <p>Sune: 0/72</p>
-      <p>Antisune: 0/72</p>
-      <p>T: 0/72</p>
-      <p>U: 0/72</p>
-      <p>L: 0/72</p>
-      <p>H: 0/40</p>
-      <p>Pi: 0/72</p>
+      <div id="christopher-sune">Sune: 0/72</div>
+      <div id="christopher-antisune">Antisune: 0/72</div>
+      <div id="christopher-t">T: 0/72</div>
+      <div id="christopher-u">U: 0/72</div>
+      <div id="christopher-l">L: 0/72</div>
+      <div id="christopher-h">H: 0/40</div>
+      <div id="christopher-pi">Pi: 0/72</div>
     </div>
 
+    <!-- Displaying Alexei's progress -->
     <div class="progress-box" id="alexei-progress">
       <h3>Alexei Sinyavin</h3>
-      <p>Sune: 0/72</p>
-      <p>Antisune: 0/72</p>
-      <p>T: 0/72</p>
-      <p>U: 0/72</p>
-      <p>L: 0/72</p>
-      <p>H: 0/40</p>
-      <p>Pi: 0/72</p>
+      <div id="alexei-sune">Sune: 0/72</div>
+      <div id="alexei-antisune">Antisune: 0/72</div>
+      <div id="alexei-t">T: 0/72</div>
+      <div id="alexei-u">U: 0/72</div>
+      <div id="alexei-l">L: 0/72</div>
+      <div id="alexei-h">H: 0/40</div>
+      <div id="alexei-pi">Pi: 0/72</div>
     </div>
+  </div>
+  
+  <button id="add-progress-button">Add Progress</button>
+</div>
+
+<!-- Update progress form screen -->
+<div id="update-progress-screen" style="display:none;">
+  <h2>Add Progress</h2>
+  <form id="updateProgressForm">
+    <label for="name">Name:</label>
+    <select id="name" name="name">
+      <option value="Daniel Karnaukh">Daniel Karnaukh</option>
+      <option value="Christopher Chi">Christopher Chi</option>
+      <option value="Alexei Sinyavin">Alexei Sinyavin</option>
+    </select>
     
-    <button onclick="goToUpdateScreen()">Add Progress</button>
-  </div>
+    <label for="set">Set:</label>
+    <select id="set" name="set">
+      <option value="Sune">Sune</option>
+      <option value="Antisune">Antisune</option>
+      <option value="T">T</option>
+      <option value="U">U</option>
+      <option value="L">L</option>
+      <option value="H">H</option>
+      <option value="Pi">Pi</option>
+    </select>
 
-  <!-- Add progress screen -->
-  <div id="addProgressScreen" style="display: none;">
-    <h2>Update ZBLL Progress</h2>
-    <form id="progressForm">
-      <label for="person">Choose a person:</label>
-      <select id="person" name="person">
-        <option value="daniel">Daniel Karnaukh</option>
-        <option value="christopher">Christopher Chi</option>
-        <option value="alexei">Alexei Sinyavin</option>
-      </select>
-      
-      <label for="set">Choose a set:</label>
-      <select id="set" name="set">
-        <option value="sune">Sune</option>
-        <option value="antisune">Antisune</option>
-        <option value="t">T</option>
-        <option value="u">U</option>
-        <option value="l">L</option>
-        <option value="h">H</option>
-        <option value="pi">Pi</option>
-      </select>
-      
-      <label for="completed">Completed Algorithms:</label>
-      <input type="number" id="completed" name="completed" min="0" required>
-      
-      <button type="submit">Submit</button>
-    </form>
-    <button onclick="goToMainScreen()">Back to Progress</button>
-  </div>
+    <label for="completed">Completed:</label>
+    <input type="number" id="completed" name="completed" min="0" max="72">
 
-  <script src="app.js"></script>
-</body>
-</html>
+    <button type="submit">Add Progress</button>
+  </form>
+  <button id="back-to-overview-button">Back to Overview</button>
+</div>
