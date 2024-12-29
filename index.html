@@ -59,6 +59,13 @@
             font-size: 14px;
             color: #888;
         }
+        .total {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
+        }
     </style>
 </head>
 <body>
@@ -69,32 +76,36 @@
             <h2>Daniel Karnaukh</h2>
             <div class="sets">
                 <div class="set">
-                    <label for="daniel-tset">T Set</label>
-                    <input type="number" id="daniel-tset" value="0" min="0">
+                    <label for="daniel-sune">Sune (72)</label>
+                    <input type="number" id="daniel-sune" value="0" min="0" max="72">
                 </div>
                 <div class="set">
-                    <label for="daniel-hset">H Set</label>
-                    <input type="number" id="daniel-hset" value="0" min="0">
+                    <label for="daniel-antisune">Antisune (72)</label>
+                    <input type="number" id="daniel-antisune" value="0" min="0" max="72">
                 </div>
                 <div class="set">
-                    <label for="daniel-u-set">U Set</label>
-                    <input type="number" id="daniel-u-set" value="0" min="0">
-                </div
-                <div class="set">
-                    <label for="daniel-u-set">L Set</label>
-                    <input type="number" id="daniel-l-set" value="0" min="0">
-                <div class="set">
-                    <label for="daniel-u-set">Pi Set</label>
-                    <input type="number" id="daniel-pi-set" value="0" min="0">
+                    <label for="daniel-t">T (72)</label>
+                    <input type="number" id="daniel-t" value="0" min="0" max="72">
                 </div>
                 <div class="set">
-                    <label for="daniel-u-set">Sune Set</label>
-                    <input type="number" id="daniel-sune-set" value="0" min="0">
-                /div> 
+                    <label for="daniel-u">U (72)</label>
+                    <input type="number" id="daniel-u" value="0" min="0" max="72">
+                </div>
                 <div class="set">
-                    <label for="daniel-u-set">Anti-Sune</label>
-                    <input type="number" id="daniel-antisune-set" value="0" min="0">
-                </div>    
+                    <label for="daniel-l">L (72)</label>
+                    <input type="number" id="daniel-l" value="0" min="0" max="72">
+                </div>
+                <div class="set">
+                    <label for="daniel-h">H (40)</label>
+                    <input type="number" id="daniel-h" value="0" min="0" max="40">
+                </div>
+                <div class="set">
+                    <label for="daniel-pi">Pi (72)</label>
+                    <input type="number" id="daniel-pi" value="0" min="0" max="72">
+                </div>
+            </div>
+            <div class="total">
+                Total ZBLL Progress: <span id="daniel-total">0 / 493</span>
             </div>
         </div>
 
@@ -103,17 +114,36 @@
             <h2>Christopher Chi</h2>
             <div class="sets">
                 <div class="set">
-                    <label for="christopher-tset">T Set</label>
-                    <input type="number" id="christopher-tset" value="0" min="0">
+                    <label for="christopher-sune">Sune (72)</label>
+                    <input type="number" id="christopher-sune" value="0" min="0" max="72">
                 </div>
                 <div class="set">
-                    <label for="christopher-hset">H Set</label>
-                    <input type="number" id="christopher-hset" value="0" min="0">
+                    <label for="christopher-antisune">Antisune (72)</label>
+                    <input type="number" id="christopher-antisune" value="0" min="0" max="72">
                 </div>
                 <div class="set">
-                    <label for="christopher-u-set">U Set</label>
-                    <input type="number" id="christopher-u-set" value="0" min="0">
+                    <label for="christopher-t">T (72)</label>
+                    <input type="number" id="christopher-t" value="0" min="0" max="72">
                 </div>
+                <div class="set">
+                    <label for="christopher-u">U (72)</label>
+                    <input type="number" id="christopher-u" value="0" min="0" max="72">
+                </div>
+                <div class="set">
+                    <label for="christopher-l">L (72)</label>
+                    <input type="number" id="christopher-l" value="0" min="0" max="72">
+                </div>
+                <div class="set">
+                    <label for="christopher-h">H (40)</label>
+                    <input type="number" id="christopher-h" value="0" min="0" max="40">
+                </div>
+                <div class="set">
+                    <label for="christopher-pi">Pi (72)</label>
+                    <input type="number" id="christopher-pi" value="0" min="0" max="72">
+                </div>
+            </div>
+            <div class="total">
+                Total ZBLL Progress: <span id="christopher-total">0 / 493</span>
             </div>
         </div>
 
@@ -122,35 +152,67 @@
             <h2>Alexei Sinyavin</h2>
             <div class="sets">
                 <div class="set">
-                    <label for="alexei-tset">T Set</label>
-                    <input type="number" id="alexei-tset" value="0" min="0">
+                    <label for="alexei-sune">Sune (72)</label>
+                    <input type="number" id="alexei-sune" value="0" min="0" max="72">
                 </div>
                 <div class="set">
-                    <label for="alexei-hset">H Set</label>
-                    <input type="number" id="alexei-hset" value="0" min="0">
+                    <label for="alexei-antisune">Antisune (72)</label>
+                    <input type="number" id="alexei-antisune" value="0" min="0" max="72">
                 </div>
                 <div class="set">
-                    <label for="alexei-u-set">U Set</label>
-                    <input type="number" id="alexei-u-set" value="0" min="0">
+                    <label for="alexei-t">T (72)</label>
+                    <input type="number" id="alexei-t" value="0" min="0" max="72">
                 </div>
+                <div class="set">
+                    <label for="alexei-u">U (72)</label>
+                    <input type="number" id="alexei-u" value="0" min="0" max="72">
+                </div>
+                <div class="set">
+                    <label for="alexei-l">L (72)</label>
+                    <input type="number" id="alexei-l" value="0" min="0" max="72">
+                </div>
+                <div class="set">
+                    <label for="alexei-h">H (40)</label>
+                    <input type="number" id="alexei-h" value="0" min="0" max="40">
+                </div>
+                <div class="set">
+                    <label for="alexei-pi">Pi (72)</label>
+                    <input type="number" id="alexei-pi" value="0" min="0" max="72">
+                </div>
+            </div>
+            <div class="total">
+                Total ZBLL Progress: <span id="alexei-total">0 / 493</span>
             </div>
         </div>
     </div>
     <div class="footer">Built for fun ZBLL tracking! 🚀</div>
     <script>
+        // Function to calculate total progress
+        function updateTotal(person) {
+            const sets = ['sune', 'antisune', 't', 'u', 'l', 'h', 'pi'];
+            let total = 0;
+            sets.forEach(set => {
+                const value = parseInt(document.getElementById(person + '-' + set).value) || 0;
+                total += value;
+            });
+            const totalProgress = total + 21; // Adding PLLs
+            document.getElementById(person + '-total').textContent = `${totalProgress} / 493`;
+        }
+
+        // Event listeners for input changes
         document.querySelectorAll('input').forEach(input => {
+            const savedValue = localStorage.getItem(input.id);
+            if (savedValue) input.value = savedValue;
+
             input.addEventListener('change', () => {
-                console.log(`${input.id} updated to ${input.value}`);
+                localStorage.setItem(input.id, input.value);
+                const person = input.id.split('-')[0];
+                updateTotal(person);
             });
         });
-    <document.querySelectorAll('input').forEach(input => {
-    const savedValue = localStorage.getItem(input.id);
-    if (savedValue) input.value = savedValue;
 
-    input.addEventListener('change', () => {
-        localStorage.setItem(input.id, input.value);
-        console.log(`${input.id} updated to ${input.value}`);
-    });
-});>
+        // Initialize total progress on page load
+        ['daniel', 'christopher', 'alexei'].forEach(person => updateTotal(person));
+    </script>
 </body>
 </html>
