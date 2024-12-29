@@ -7,91 +7,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div id="main-screen">
         <h1>ZBLL Progress Tracker</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Sune</th>
-                    <th>Antisune</th>
-                    <th>T</th>
-                    <th>U</th>
-                    <th>L</th>
-                    <th>H</th>
-                    <th>Pi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Daniel Karnaukh</td>
-                    <td id="daniel-sune">0/72</td>
-                    <td id="daniel-antisune">0/72</td>
-                    <td id="daniel-t">0/72</td>
-                    <td id="daniel-u">0/72</td>
-                    <td id="daniel-l">0/72</td>
-                    <td id="daniel-h">0/40</td>
-                    <td id="daniel-pi">0/72</td>
-                </tr>
-                <tr>
-                    <td>Christopher Chi</td>
-                    <td id="christopher-sune">0/72</td>
-                    <td id="christopher-antisune">0/72</td>
-                    <td id="christopher-t">0/72</td>
-                    <td id="christopher-u">0/72</td>
-                    <td id="christopher-l">0/72</td>
-                    <td id="christopher-h">0/40</td>
-                    <td id="christopher-pi">0/72</td>
-                </tr>
-                <tr>
-                    <td>Alexei Sinyavin</td>
-                    <td id="alexei-sune">0/72</td>
-                    <td id="alexei-antisune">0/72</td>
-                    <td id="alexei-t">0/72</td>
-                    <td id="alexei-u">0/72</td>
-                    <td id="alexei-l">0/72</td>
-                    <td id="alexei-h">0/40</td>
-                    <td id="alexei-pi">0/72</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <button onclick="showUpdateForm()">Update Progress</button>
+        <div id="progress-container"></div>
+        <button onclick="showUpdateForm()">Add Progress</button>
     </div>
 
-    <div id="update-screen" style="display: none;">
+    <div id="update-screen" style="display:none;">
         <h2>Update Progress</h2>
-        <form id="update-form">
-            <label for="user-select">Select User: </label>
-            <select id="user-select">
+        <form id="update-form" onsubmit="event.preventDefault(); updateProgress();">
+            <label for="user">Select User:</label>
+            <select id="user" required>
                 <option value="Daniel Karnaukh">Daniel Karnaukh</option>
                 <option value="Christopher Chi">Christopher Chi</option>
                 <option value="Alexei Sinyavin">Alexei Sinyavin</option>
-            </select>
-            <br><br>
+            </select><br><br>
 
-            <label for="set-select">Select Set: </label>
-            <select id="set-select">
-                <option value="Sune">Sune</option>
-                <option value="Antisune">Antisune</option>
-                <option value="T">T</option>
-                <option value="U">U</option>
-                <option value="L">L</option>
-                <option value="H">H</option>
-                <option value="Pi">Pi</option>
-            </select>
-            <br><br>
+            <label for="set">Select Set:</label>
+            <select id="set" required>
+                <option value="sune">Sune</option>
+                <option value="antisune">Antisune</option>
+                <option value="t">T</option>
+                <option value="u">U</option>
+                <option value="l">L</option>
+                <option value="h">H</option>
+                <option value="pi">Pi</option>
+            </select><br><br>
 
-            <label for="completed">Completed: </label>
-            <input type="number" id="completed" name="completed" min="0" max="72" required>
-            <br><br>
+            <label for="progress">Progress (number of algorithms completed):</label>
+            <input type="number" id="progress" min="0" required><br><br>
 
-            <button type="button" onclick="updateProgress()">Submit Progress</button>
+            <button type="submit">Update Progress</button>
         </form>
-
-        <br>
-        <button onclick="goBackToMain()">Back</button>
+        <button onclick="goBackToMain()">Go Back</button>
     </div>
 
     <script src="app.js"></script>
