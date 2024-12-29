@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Rubik's Cube Visualizer</title>
+    <title>Cube Solver</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>3D Rubik's Cube Visualizer</h1>
-    </header>
-    <main>
-        <section class="input-section">
-            <h2>Input Your Algorithm</h2>
-            <textarea id="algorithm-input" placeholder="Enter the algorithm here (e.g., R U R' U')"></textarea>
-            <button id="visualize-btn">Visualize</button>
-        </section>
-        <section class="cube-section">
-            <h2>Cube Visualization</h2>
-            <div id="cube-container"></div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 3D Rubik's Cube Visualizer. All rights reserved.</p>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="app.js"></script>
+    <div class="container">
+        <header>
+            <h1>Rubik's Cube Solver</h1>
+        </header>
+        <main>
+            <form id="scrambleForm">
+                <label for="scramble">Enter Scramble:</label>
+                <input type="text" id="scramble" placeholder="Example: U R2 F B R B2 U2 L B2 R U' D' R2 F R' L B2 U2 F2">
+                <button type="submit">Solve</button>
+            </form>
+            <div id="solution">
+                <h2>Solution:</h2>
+                <p id="solutionOutput">Enter a scramble above to see the solution.</p>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Cube Solver</p>
+        </footer>
+    </div>
+    <script src="solver.js"></script>
 </body>
 </html>
