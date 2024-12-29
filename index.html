@@ -4,71 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome to My Cuber Website</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <title>Rubik's Cube Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
-    <!-- Header Section -->
     <header>
-        <div class="logo">
-            <h1>Welcome to My Cuber Website</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Rubik's Cube Algorithm Visualizer</h1>
     </header>
 
-    <!-- Home Section -->
-    <section id="home" class="section home">
-        <h2>Welcome to the Cuber World</h2>
-        <p>Explore everything you need to know about cubes, from solving to competitions and more!</p>
-        <button class="cta-button">Get Started</button>
-    </section>
+    <main>
+        <section class="input-section">
+            <h2>Input Your Algorithm</h2>
+            <textarea id="algorithm-input" placeholder="Enter the algorithm here (e.g., R U R' U')"></textarea>
+            <button id="visualize-btn">Visualize</button>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <h2>About Us</h2>
-        <p>We are a community dedicated to the art of cubing. Whether you're a beginner or a pro, we have resources and challenges to keep you engaged.</p>
-    </section>
+        <section class="cube-section">
+            <h2>Cube Visualization</h2>
+            <div id="cube-container"></div>
+        </section>
+    </main>
 
-    <!-- Services Section -->
-    <section id="services" class="section services">
-        <h2>Our Services</h2>
-        <div class="service-card">
-            <h3>Learn to Solve</h3>
-            <p>Join our tutorials to learn how to solve a cube step-by-step.</p>
-        </div>
-        <div class="service-card">
-            <h3>Competitive Cubing</h3>
-            <p>Find cubing competitions near you and challenge yourself!</p>
-        </div>
-        <div class="service-card">
-            <h3>Buy Cubes</h3>
-            <p>We offer a range of high-quality cubes for cubing enthusiasts.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <h2>Contact Us</h2>
-        <p>Have any questions or feedback? Reach out to us, and we'd love to help!</p>
-        <button class="cta-button">Get in Touch</button>
-    </section>
-
-    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 My Cuber Website. All rights reserved.</p>
+        <p>&copy; 2024 Rubik's Cube Visualizer. All rights reserved.</p>
     </footer>
 
-    <script src="app.js"></script> <!-- Link to external JavaScript file -->
+    <script src="app.js"></script>
 </body>
 
 </html>
