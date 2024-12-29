@@ -3,29 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cube Solver</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ZBLL Progress Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #555;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .person {
+            margin-bottom: 20px;
+        }
+        .person h2 {
+            margin: 0 0 10px;
+            color: #444;
+        }
+        .sets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .set {
+            flex: 1 1 calc(33% - 10px);
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .set input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
+    <h1>ZBLL Progress Tracker</h1>
     <div class="container">
-        <header>
-            <h1>Rubik's Cube Solver</h1>
-        </header>
-        <main>
-            <form id="scrambleForm">
-                <label for="scramble">Enter Scramble:</label>
-                <input type="text" id="scramble" placeholder="Example: U R2 F B R B2 U2 L B2 R U' D' R2 F R' L B2 U2 F2">
-                <button type="submit">Solve</button>
-            </form>
-            <div id="solution">
-                <h2>Solution:</h2>
-                <p id="solutionOutput">Enter a scramble above to see the solution.</p>
+        <!-- Daniel Karnaukh -->
+        <div class="person">
+            <h2>Daniel Karnaukh</h2>
+            <div class="sets">
+                <div class="set">
+                    <label for="daniel-tset">T Set</label>
+                    <input type="number" id="daniel-tset" value="0" min="0">
+                </div>
+                <div class="set">
+                    <label for="daniel-hset">H Set</label>
+                    <input type="number" id="daniel-hset" value="0" min="0">
+                </div>
+                <div class="set">
+                    <label for="daniel-u-set">U Set</label>
+                    <input type="number" id="daniel-u-set" value="0" min="0">
+                </div>
             </div>
-        </main>
-        <footer>
-            <p>&copy; 2024 Cube Solver</p>
-        </footer>
+        </div>
+
+        <!-- Christopher Chi -->
+        <div class="person">
+            <h2>Christopher Chi</h2>
+            <div class="sets">
+                <div class="set">
+                    <label for="christopher-tset">T Set</label>
+                    <input type="number" id="christopher-tset" value="0" min="0">
+                </div>
+                <div class="set">
+                    <label for="christopher-hset">H Set</label>
+                    <input type="number" id="christopher-hset" value="0" min="0">
+                </div>
+                <div class="set">
+                    <label for="christopher-u-set">U Set</label>
+                    <input type="number" id="christopher-u-set" value="0" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Alexei Sinyavin -->
+        <div class="person">
+            <h2>Alexei Sinyavin</h2>
+            <div class="sets">
+                <div class="set">
+                    <label for="alexei-tset">T Set</label>
+                    <input type="number" id="alexei-tset" value="0" min="0">
+                </div>
+                <div class="set">
+                    <label for="alexei-hset">H Set</label>
+                    <input type="number" id="alexei-hset" value="0" min="0">
+                </div>
+                <div class="set">
+                    <label for="alexei-u-set">U Set</label>
+                    <input type="number" id="alexei-u-set" value="0" min="0">
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="solver.js"></script>
+    <div class="footer">Built for fun ZBLL tracking! 🚀</div>
+    <script>
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('change', () => {
+                console.log(`${input.id} updated to ${input.value}`);
+            });
+        });
+    </script>
 </body>
 </html>
