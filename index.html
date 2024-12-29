@@ -1,40 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progress Tracker</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZBLL Progress Tracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Overview Screen -->
-    <div id="overview-screen" class="screen">
-      <h1>Progress Tracker</h1>
-      <div class="progress-summary">
-        <div class="progress-item">
-          <h2>Daniel Karnaukh</h2>
-          <div id="daniel-sune">Sune: 10/72</div>
-          <div id="daniel-antisune">Antisune: 15/72</div>
-          <div id="daniel-t">T: 12/72</div>
-          <div id="daniel-u">U: 14/72</div>
-          <div id="daniel-l">L: 8/72</div>
-          <div id="daniel-h">H: 5/40</div>
-          <div id="daniel-pi">Pi: 6/72</div>
-          <button id="add-progress-button">Add Progress</button>
-        </div>
-        <div class="progress-item">
-          <h2>Christopher Chi</h2>
-          <div id="christopher-sune">Sune: 20/72</div>
-          <div id="christopher-antisune">Antisune: 25/72</div>
-          <div id="christopher-t">T: 18/72</div>
-          <div id="christopher-u">U: 20/72</div>
-          <div id="christopher-l">L: 12/72</div>
-          <div id="christopher-h">H: 10/40</div>
-          <div id="christopher-pi">Pi: 8/72</div>
-          <button id="add-progress-button">Add Progress</button>
-        </div>
-        <div class="progress-item">
-          <h2>Alexei Sinyavin</h2>
-          <div id="alexei-sune">Sune: 30/72</div>
-          <div id
+
+    <div id="main-screen">
+        <h1>ZBLL Progress Tracker</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sune</th>
+                    <th>Antisune</th>
+                    <th>T</th>
+                    <th>U</th>
+                    <th>L</th>
+                    <th>H</th>
+                    <th>Pi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Daniel Karnaukh</td>
+                    <td id="daniel-sune">0/72</td>
+                    <td id="daniel-antisune">0/72</td>
+                    <td id="daniel-t">0/72</td>
+                    <td id="daniel-u">0/72</td>
+                    <td id="daniel-l">0/72</td>
+                    <td id="daniel-h">0/40</td>
+                    <td id="daniel-pi">0/72</td>
+                </tr>
+                <tr>
+                    <td>Christopher Chi</td>
+                    <td id="christopher-sune">0/72</td>
+                    <td id="christopher-antisune">0/72</td>
+                    <td id="christopher-t">0/72</td>
+                    <td id="christopher-u">0/72</td>
+                    <td id="christopher-l">0/72</td>
+                    <td id="christopher-h">0/40</td>
+                    <td id="christopher-pi">0/72</td>
+                </tr>
+                <tr>
+                    <td>Alexei Sinyavin</td>
+                    <td id="alexei-sune">0/72</td>
+                    <td id="alexei-antisune">0/72</td>
+                    <td id="alexei-t">0/72</td>
+                    <td id="alexei-u">0/72</td>
+                    <td id="alexei-l">0/72</td>
+                    <td id="alexei-h">0/40</td>
+                    <td id="alexei-pi">0/72</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <button onclick="showUpdateForm()">Update Progress</button>
+    </div>
+
+    <div id="update-screen" style="display: none;">
+        <h2>Update Progress</h2>
+        <form id="update-form">
+            <label for="user-select">Select User: </label>
+            <select id="user-select">
+                <option value="Daniel Karnaukh">Daniel Karnaukh</option>
+                <option value="Christopher Chi">Christopher Chi</option>
+                <option value="Alexei Sinyavin">Alexei Sinyavin</option>
+            </select>
+            <br><br>
+
+            <label for="set-select">Select Set: </label>
+            <select id="set-select">
+                <option value="Sune">Sune</option>
+                <option value="Antisune">Antisune</option>
+                <option value="T">T</option>
+                <option value="U">U</option>
+                <option value="L">L</option>
+                <option value="H">H</option>
+                <option value="Pi">Pi</option>
+            </select>
+            <br><br>
+
+            <label for="completed">Completed: </label>
+            <input type="number" id="completed" name="completed" min="0" max="72" required>
+            <br><br>
+
+            <button type="button" onclick="updateProgress()">Submit Progress</button>
+        </form>
+
+        <br>
+        <button onclick="goBackToMain()">Back</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
