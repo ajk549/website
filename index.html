@@ -79,7 +79,22 @@
                 <div class="set">
                     <label for="daniel-u-set">U Set</label>
                     <input type="number" id="daniel-u-set" value="0" min="0">
+                </div
+                <div class="set">
+                    <label for="daniel-u-set">L Set</label>
+                    <input type="number" id="daniel-l-set" value="0" min="0">
+                <div class="set">
+                    <label for="daniel-u-set">Pi Set</label>
+                    <input type="number" id="daniel-pi-set" value="0" min="0">
                 </div>
+                <div class="set">
+                    <label for="daniel-u-set">Sune Set</label>
+                    <input type="number" id="daniel-sune-set" value="0" min="0">
+                /div> 
+                <div class="set">
+                    <label for="daniel-u-set">Anti-Sune</label>
+                    <input type="number" id="daniel-antisune-set" value="0" min="0">
+                </div>    
             </div>
         </div>
 
@@ -128,6 +143,14 @@
                 console.log(`${input.id} updated to ${input.value}`);
             });
         });
-    </script>
+    <document.querySelectorAll('input').forEach(input => {
+    const savedValue = localStorage.getItem(input.id);
+    if (savedValue) input.value = savedValue;
+
+    input.addEventListener('change', () => {
+        localStorage.setItem(input.id, input.value);
+        console.log(`${input.id} updated to ${input.value}`);
+    });
+});>
 </body>
 </html>
