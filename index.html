@@ -4,44 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZBLL Progress Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div id="main-screen">
-        <h1>ZBLL Progress Tracker</h1>
-        <div id="progress-container"></div>
-        <button onclick="showUpdateForm()">Add Progress</button>
-    </div>
 
-    <div id="update-screen" style="display:none;">
-        <h2>Update Progress</h2>
-        <form id="update-form" onsubmit="event.preventDefault(); updateProgress();">
-            <label for="user">Select User:</label>
-            <select id="user" required>
-                <option value="Daniel Karnaukh">Daniel Karnaukh</option>
-                <option value="Christopher Chi">Christopher Chi</option>
-                <option value="Alexei Sinyavin">Alexei Sinyavin</option>
-            </select><br><br>
+    <h1>ZBLL Progress Tracker</h1>
 
-            <label for="set">Select ZBLL Set:</label>
-            <select id="set" required>
-                <option value="sune">Sune</option>
-                <option value="antisune">Antisune</option>
-                <option value="t">T</option>
-                <option value="u">U</option>
-                <option value="l">L</option>
-                <option value="h">H</option>
-                <option value="pi">Pi</option>
-            </select><br><br>
+    <table id="progressTable">
+        <tr>
+            <th>Solver</th>
+            <th>T</th>
+            <th>U</th>
+            <th>L</th>
+            <th>H</th>
+            <th>Pi</th>
+            <th>Su</th>
+            <th>An</th>
+            <th>Total</th>
+        </tr>
+    </table>
 
-            <label for="progress">Progress (number of algorithms completed):</label>
-            <input type="number" id="progress" min="0" required><br><br>
+    <button id="updateButton">Update Progress</button>
 
-            <button type="submit">Update Progress</button>
-        </form>
-        <button onclick="goBackToMain()">Go Back</button>
-    </div>
+    <script src="script.js"></script>
 
-    <script src="app.js"></script>
 </body>
 </html>
