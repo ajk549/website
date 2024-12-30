@@ -1,61 +1,69 @@
 body {
-    font-family: sans-serif;
-    margin: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-h1 {
-    text-align: center;
+h1, h2 {
+    font-weight: bold;
 }
 
-/* Index.html styles */
-#progressTable {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-#updateButton {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Update.html styles */
-.container {
-    max-width: 300px;
+.main-container, .update-container {
+    max-width: 1200px;
     margin: 0 auto;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="number"] {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.user-progress {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    width: 30%;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label, form select, form input {
+    margin-bottom: 10px;
+}
+
+form input, form select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
