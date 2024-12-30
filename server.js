@@ -1,67 +1,68 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require("path");
 
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-    .then(() => console.log("MongoDB connected"))
-    .catch(err => console.log("MongoDB connection error:", err));
+// Simulate progress data
+const progressData = [
+    {
+        name: "Daniel Karnaukh",
+        sune: 10,
+        antisune: 8,
+        t: 15,
+        u: 12,
+        l: 5,
+        h: 2,
+        pi: 9,
+    },
+    {
+        name: "Christopher Chi",
+        sune: 20,
+        antisune: 12,
+        t: 30,
+        u: 18,
+        l: 10,
+        h: 4,
+        pi: 18,
+    },
+    {
+        name: "Alexei Sinyavin",
+        sune: 25,
+        antisune: 20,
+        t: 35,
+        u: 22,
+        l: 15,
+        h: 6,
+        pi: 22,
+    },
+];
 
-// Progress Schema and Model
-const progressSchema = new mongoose.Schema({
-    name: String,
-    sune: Number,
-    antisune: Number,
-    t: Number,
-    u: Number,
-    l: Number,
-    h: Number,
-    pi: Number,
+// API route to get progress data
+app.get("/api/progress", (req, res) => {
+    res.json(progressData);
 });
-const Progress = mongoose.model("Progress", progressSchema);
 
-// Serve Main Page
-app.get("/website", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-// Serve Update Page
-app.get("/website/update", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "update.html"));
-});
-
-// API: Update Progress
-app.post("/api/progress/update", async (req, res) => {
+// API route to update progress
+app.post("/api/progress/update", (req, res) => {
     const { name, set, progress } = req.body;
 
-    try {
-        const userProgress = await Progress.findOne({ name });
-
-        if (userProgress) {
-            userProgress[set] = progress;
-            await userProgress.save();
-            res.status(200).json({ success: true });
-        } else {
-            res.status(404).json({ success: false, message: "User not found" });
-        }
-    } catch (err) {
-        console.error('Error:', err);
-        res.status(500).json({ success: false, message: "Error updating progress" });
+    // Find the user in the progress data
+    const user = progressData.find((entry) => entry.name === name);
+    if (user) {
+        user[set] = progress; // Update the progress
+        res.status(200).json({ success: true });
+    } else {
+        res.status(404).json({ success: false, message: "User not found" });
     }
 });
 
-// Start Server
+// Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+    console.log
