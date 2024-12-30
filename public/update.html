@@ -25,4 +25,46 @@
                 <option value="u">U</option>
                 <option value="l">L</option>
                 <option value="h">H</option>
-                <option value="p
+                <option value="pi">PI</option>
+            </select>
+
+            <label for="progress">Progress (number of algorithms completed):</label>
+            <input type="number" id="progress" name="progress" required min="0">
+
+            <button type="submit">Update Progress</button>
+        </form>
+
+        <button onclick="window.location.href='/website'">Back to Main Screen</button>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('updateForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const set = document.getElementById('set').value;
+            const progress = document.getElementById('progress').value;
+
+            fetch('/api/progress/update', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, set, progress })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Progress updated successfully!");
+                } else {
+                    alert("Error updating progress.");
+                }
+            })
+            .catch(error => {
+                alert("An error occurred: " + error.message);
+            });
+        });
+    </script>
+</body>
+</html>
