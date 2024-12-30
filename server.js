@@ -33,12 +33,12 @@ const progressSchema = new mongoose.Schema({
 const Progress = mongoose.model("Progress", progressSchema);
 
 // Serve Main Page
-app.get("/", (req, res) => {
+app.get("/website", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Serve Update Page
-app.get("/update", (req, res) => {
+app.get("/website/update", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "update.html"));
 });
 
@@ -57,6 +57,7 @@ app.post("/api/progress/update", async (req, res) => {
             res.status(404).json({ success: false, message: "User not found" });
         }
     } catch (err) {
+        console.error('Error:', err);
         res.status(500).json({ success: false, message: "Error updating progress" });
     }
 });
