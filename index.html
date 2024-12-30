@@ -9,45 +9,51 @@
 <body>
     <div class="main-container">
         <h1>ZBLL Progress Tracker</h1>
-        <div class="progress-container">
-            <div class="user-progress">
-                <h2>Daniel Karnaukh</h2>
-                <ul>
-                    <li>Sune: 20/72</li>
-                    <li>Antisune: 18/72</li>
-                    <li>T: 15/72</li>
-                    <li>U: 25/72</li>
-                    <li>L: 19/72</li>
-                    <li>H: 30/40</li>
-                    <li>PI: 10/72</li>
-                </ul>
-            </div>
-            <div class="user-progress">
-                <h2>Christopher Chi</h2>
-                <ul>
-                    <li>Sune: 22/72</li>
-                    <li>Antisune: 19/72</li>
-                    <li>T: 18/72</li>
-                    <li>U: 28/72</li>
-                    <li>L: 21/72</li>
-                    <li>H: 35/40</li>
-                    <li>PI: 15/72</li>
-                </ul>
-            </div>
-            <div class="user-progress">
-                <h2>Alexei Sinyavin</h2>
-                <ul>
-                    <li>Sune: 25/72</li>
-                    <li>Antisune: 22/72</li>
-                    <li>T: 19/72</li>
-                    <li>U: 30/72</li>
-                    <li>L: 23/72</li>
-                    <li>H: 32/40</li>
-                    <li>PI: 18/72</li>
-                </ul>
-            </div>
+        <div id="progress-summary">
+            <h2>Progress Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Sune</th>
+                        <th>Antisune</th>
+                        <th>T</th>
+                        <th>U</th>
+                        <th>L</th>
+                        <th>H</th>
+                        <th>PI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated dynamically here -->
+                </tbody>
+            </table>
         </div>
         <button onclick="window.location.href='/website/update'">Update Progress</button>
     </div>
+
+    <script>
+        // Fetch progress data from the backend and populate the table
+        fetch('/api/progress')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.querySelector('tbody');
+                data.forEach(progress => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${progress.name}</td>
+                        <td>${progress.sune}/72</td>
+                        <td>${progress.antisune}/72</td>
+                        <td>${progress.t}/72</td>
+                        <td>${progress.u}/72</td>
+                        <td>${progress.l}/72</td>
+                        <td>${progress.h}/40</td>
+                        <td>${progress.pi}/72</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(err => console.error("Error fetching progress data:", err));
+    </script>
 </body>
 </html>
