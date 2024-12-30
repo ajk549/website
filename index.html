@@ -1,47 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZBLL Progress Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div id="main-screen">
-        <h1>ZBLL Progress Tracker</h1>
-        <div id="progress-container"></div>
-        <button onclick="showUpdateForm()">Add Progress</button>
-    </div>
 
-    <div id="update-screen" style="display:none;">
-        <h2>Update Progress</h2>
-        <form id="update-form" onsubmit="event.preventDefault(); updateProgress();">
-            <label for="user">Select User:</label>
-            <select id="user" required>
-                <option value="Daniel Karnaukh">Daniel Karnaukh</option>
-                <option value="Christopher Chi">Christopher Chi</option>
-                <option value="Alexei Sinyavin">Alexei Sinyavin</option>
-            </select><br><br>
+    <h1>ZBLL Progress Tracker</h1>
 
-            <label for="set">Select Set:</label>
-            <select id="set" required>
-                <option value="sune">Sune</option>
-                <option value="antisune">Antisune</option>
-                <option value="t">T</option>
-                <option value="u">U</option>
-                <option value="l">L</option>
-                <option value="h">H</option>
-                <option value="pi">Pi</option>
-            </select><br><br>
+    <table>
+        <tr>
+            <th>Solver</th>
+            <th>T</th>
+            <th>U</th>
+            <th>L</th>
+            <th>H</th>
+            <th>Pi</th>
+            <th>Su</th>
+            <th>An</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>Christopher Chi</td>
+            <td id="chiT">0/72</td>
+            <td id="chiU">0/72</td>
+            <td id="chiL">0/72</td>
+            <td id="chiH">0/72</td>
+            <td id="chiPi">0/72</td>
+            <td id="chiSu">0/72</td>
+            <td id="chiAn">0/72</td>
+            <td id="chiTotal">0/504</td>
+        </tr>
+        <tr>
+            <td>Daniel Karnaukh</td>
+            <td id="karnaukhT">0/72</td>
+            <td id="karnaukhU">0/72</td>
+            <td id="karnaukhL">0/72</td>
+            <td id="karnaukhH">0/72</td>
+            <td id="karnaukhPi">0/72</td>
+            <td id="karnaukhSu">0/72</td>
+            <td id="karnaukhAn">0/72</td>
+            <td id="karnaukhTotal">0/504</td>
+        </tr>
+        <tr>
+            <td>Alexei Sinyavin</td>
+            <td id="sinyavinT">0/72</td>
+            <td id="sinyavinU">0/72</td>
+            <td id="sinyavinL">0/72</td>
+            <td id="sinyavinH">0/72</td>
+            <td id="sinyavinPi">0/72</td>
+            <td id="sinyavinSu">0/72</td>
+            <td id="sinyavinAn">0/72</td>
+            <td id="sinyavinTotal">0/504</td>
+        </tr>
+    </table>
 
-            <label for="progress">Progress (number of algorithms completed):</label>
-            <input type="number" id="progress" min="0" required><br><br>
+    <button onclick="location.href='update.html'">Update Progress</button>
 
-            <button type="submit">Update Progress</button>
-        </form>
-        <button onclick="goBackToMain()">Go Back</button>
-    </div>
+    <script>
+        // (You would fetch and display data from your backend here)
+    </script>
 
-    <script src="app.js"></script>
 </body>
 </html>
