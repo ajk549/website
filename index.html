@@ -4,29 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZBLL Progress Tracker</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <h1>ZBLL Progress Tracker</h1>
-
-    <table id="progressTable">
-        <tr>
-            <th>Solver</th>
-            <th>T</th>
-            <th>U</th>
-            <th>L</th>
-            <th>H</th>
-            <th>Pi</th>
-            <th>Su</th>
-            <th>An</th>
-            <th>Total</th>
-        </tr>
-    </table>
-
-    <button id="updateButton">Update Progress</button>
-
-    <script src="script.js"></script>
-
+    <div class="main-container">
+        <h1>ZBLL Progress Tracker</h1>
+        <div class="progress-container">
+            <div class="user-progress">
+                <h2>Daniel Karnaukh</h2>
+                <ul>
+                    <li>Sune: 20/72</li>
+                    <li>Antisune: 18/72</li>
+                    <li>T: 15/72</li>
+                    <li>U: 25/72</li>
+                    <li>L: 19/72</li>
+                    <li>H: 30/40</li>
+                    <li>PI: 10/72</li>
+                </ul>
+            </div>
+            <div class="user-progress">
+                <h2>Christopher Chi</h2>
+                <ul>
+                    <li>Sune: 22/72</li>
+                    <li>Antisune: 19/72</li>
+                    <li>T: 18/72</li>
+                    <li>U: 28/72</li>
+                    <li>L: 21/72</li>
+                    <li>H: 35/40</li>
+                    <li>PI: 15/72</li>
+                </ul>
+            </div>
+            <div class="user-progress">
+                <h2>Alexei Sinyavin</h2>
+                <ul>
+                    <li>Sune: 25/72</li>
+                    <li>Antisune: 22/72</li>
+                    <li>T: 19/72</li>
+                    <li>U: 30/72</li>
+                    <li>L: 23/72</li>
+                    <li>H: 32/40</li>
+                    <li>PI: 18/72</li>
+                </ul>
+            </div>
+        </div>
+        <button onclick="window.location.href='/update'">Update Progress</button>
+    </div>
 </body>
 </html>
