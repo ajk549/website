@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Progress</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Progress</h1>
+        <form id="updateForm">
+            <label for="name">Name:</label>
+            <select id="name">
+                <option value="Daniel Karnaukh">Daniel Karnaukh</option>
+                <option value="Christopher Chi">Christopher Chi</option>
+                <option value="Alexei Sinyavin">Alexei Sinyavin</option>
+            </select>
+
+            <label for="set">Set:</label>
+            <select id="set">
+                <option value="sune">Sune</option>
+                <option value="antisune">Antisune</option>
+                <option value="t">T</option>
+                <option value="u">U</option>
+                <option value="l">L</option>
+                <option value="h">H</option>
+                <option value="pi">Pi</option>
+            </select>
+
+            <label for="progress">Progress:</label>
+            <input type="number" id="progress" min="0" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('updateForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const set = document.getElementById('set').value;
+            const progress = document.getElementById('progress').value;
+
+            const response = await fetch('/api/progress', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, set, progress }),
+            });
+
+            if (response.ok) {
+                alert("Progress updated!");
+            } else {
+                alert("Error updating progress.");
+            }
+        });
+    </script>
+</body>
+</html>
