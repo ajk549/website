@@ -38,7 +38,6 @@
     </div>
 
     <script>
-        // Handle form submission
         document.getElementById('updateForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -46,25 +45,23 @@
             const set = document.getElementById('set').value;
             const progress = document.getElementById('progress').value;
 
-            // Use fetch to send the data to the server
-            fetch("/website/update", {
+            fetch('/api/progress/update', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, set, progress }),
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Progress updated successfully!");
-                } else {
-                    alert("Error updating progress.");
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Progress updated successfully!");
+                    } else {
+                        alert("Failed to update progress: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error updating progress:", error);
+                    alert("Error updating progress. Please try again.");
+                });
         });
     </script>
 </body>
