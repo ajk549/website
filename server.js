@@ -151,7 +151,6 @@ app.post('/api/progress/update', async (req, res) => {
 
 
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server running at http://localhost:${process.env.PORT || 3000}`);
 });
