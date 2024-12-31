@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Progress</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="page-title">Update Progress</h1>
+        </header>
+
+        <!-- Update Form -->
+        <div class="update-container">
+            <form id="update-progress-form">
+                <div class="form-group">
+                    <label for="name">Select Competitor:</label>
+                    <select id="name" name="name">
+			<option value="none"></option>
+                        <option value="Daniel Karnaukh">Daniel Karnaukh</option>
+                        <option value="Christopher Chi">Christopher Chi</option>
+                        <option value="Alexei Sinyavin">Alexei Sinyavin</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="set">Select Set to Update:</label>
+                    <select id="set" name="set">
+			<option value="none"></option>
+                        <option value="sune">Sune</option>
+                        <option value="antisune">Antisune</option>
+                        <option value="t">T</option>
+                        <option value="u">U</option>
+                        <option value="l">L</option>
+                        <option value="h">H</option>
+                        <option value="pi">Pi</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="progress">Enter Progress:</label>
+                    <input type="number" id="progress" name="progress" min="0" max="72" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                    <a href="/" class="btn btn-back">Back to Main</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("update-progress-form");
+        const setInput = document.getElementById("set");
+        const progressInput = document.getElementById("progress");
+        const nameInput = document.getElementById("name");
+
+        // Adjust max value dynamically based on the selected set
+        setInput.addEventListener("change", () => {
+            if (setInput.value === "h") {
+                progressInput.max = 40; // Set max to 40 for "H" set
+            } else {
+                progressInput.max = 72; // Set max to 72 for other sets
+            }
+
+            // Reset progress value if it exceeds the new max
+            if (parseInt(progressInput.value) > progressInput.max) {
+                progressInput.value = progressInput.max;
+            }
+        });
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const name = nameInput.value;
+            const set = setInput.value;
+            const progress = parseInt(progressInput.value);
+
+            const response = await fetch("/api/progress/update", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, set, progress }),
+            });
+
+            if (response.ok) {
+                alert("Progress updated successfully!");
+
+                // Clear only the progress and set fields, keep the competitor selection
+                progressInput.value = "";
+                setInput.selectedIndex = 0; // Reset set dropdown to default
+            } else {
+                alert("Error updating progress. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
