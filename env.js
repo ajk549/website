@@ -1,1 +1,0 @@
-MONGO_URI=mongodb+srv://ajk5490:54905490Jk+@ajk.knn6a.mongodb.net/?retryWrites=true&w=majority&appName=ajk
